@@ -1,5 +1,5 @@
 ## Lese die ganze Datei als eine Sammlung von Zeilen ein.
-lines <- readLines('ablehnen.xml')
+lines <- readLines('../data/t_990505_47.xml')
 
 ## Finde die Positionsnummern von allen Tokens
 ## (d.h. Zeilen, die mit "<t " beginnen).
@@ -9,10 +9,10 @@ token.indexes <- grep('<t ', lines)
 tokens <- lines[token.indexes]
 
 ## Lösche alles vor dem Lemma.
-junk.lemmas <- sub(".+ lemma='", "", tokens)
+junk.lemmas <- sub(".+ lemma=\"", "", tokens)
 
 ## Lösche alles nach dem Lemma.
-lemmas <- sub("'.+", '', junk.lemmas)
+lemmas <- sub("\".+", "", junk.lemmas)
 
 ## Anzahl der Types ist gleich Null.
 types.count <- 0
@@ -43,4 +43,7 @@ for (i in seq_along(lemmas)) {
 }
 
 ## Zeichne eine Graphik.
-plot(types.on.position, type = 'l')
+plot(types.on.position, type = 'l',
+     xlab = "Anzahl der einmaligen Lemmata",
+     ylab = "Laufende Wortform",
+     col = 'red')
