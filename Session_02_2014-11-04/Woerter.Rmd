@@ -1,0 +1,40 @@
+# Hausaufgabe: Wortanzahl & Wortlänge
+
+
+## Wörter + Wortlängen in Vektor
+
+```{r woerter, echo = TRUE}
+s14363 <- c('Recherche','des','Prinzips')
+s14364 <- c('Ich',"mach",'das','was','ich','selbst','sehen','und','hören','möchte','Katrin','Rabus','gönnt','sich','zum','zwanzigjährigen','Galeriejubiläum','ein','Festival')
+s14365 <- c('Zunächst',"in",'den','Kellerräumen','der','privaten','Lothringer','Straße','später','im','umgebauten','Fabrikgebäude','auf','der','Plantage','in','Findorff','hat','Katrin','Rabus','zielstrebig','ihre','Galerie','für','zeitgenössische','Kunst','aufgebaut')
+s14366 <- c('Heute','kaufen','Firmen','ebenso','bei','ihr','wie','Privatleute','Etwa','zehn','Ausstellungen','pro','Jahr','bot','und','bietet','die','Galeristin','an')
+s14367 <- c('Dabei','ist','es','ihr','wichtig','immer','auch','Ausstellungen','zu','organisieren','die','nicht','primär','den','Verkauf','der','Bilder','zum','Ziel','haben','sondern','Künstlerinnen','ein','Forum','bieten')
+s14368 <- c('Die','mäzenatische','Komponente','hat','bei','Karin','Rabus','immer','eine','Rolle','gespielt')
+s14369 <- c('Kern','des','selbstredend','abstrakten','Stils','ihrer','KünstlerInnen','ist','nach','ihren','Aussagen','Ordnung','Konzentration','und','Reduktion')
+s14370 <- c('Damit','hat','sie','sich','auch','überregional','einen','Namen','gemacht')
+s14371 <- c('Aber','dabei','sollte','es','nicht','bleiben','aus','zwei','verschiedenen','Gründen','Da','war','das','Interesse','ihres','Mannes','Werner','Rabus','an','zeitgenössischer','Musik','und','eine','Krise','der','Galerie','auch','finanzieller','Natur')
+s14372 <- c('Da','lag','die','Idee','nahe','in','den','wunderbaren','Räumen','mit','dem','Oberlicht','auch','zeitgenössische','Kammermusik','aufzuführen')
+
+
+laengeS1 <- nchar(s14363)
+laengeS2 <- nchar(s14364)
+laengeS3 <- nchar(s14365)
+laengeS4 <- nchar(s14366)
+laengeS5 <- nchar(s14367)
+laengeS6 <- nchar(s14368)
+laengeS7 <- nchar(s14369)
+laengeS8 <- nchar(s14370)
+laengeS9 <- nchar(s14371)
+laengeS10 <- nchar(s14372)
+```
+
+- Satz 1 (s14363) besteht aus `r length(s14363)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS1)`
+- Satz 2 (s14364) besteht aus `r length(s14364)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS2)`
+- Satz 3 (s14365) besteht aus `r length(s14365)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS3)`
+- Satz 4 (s14366) besteht aus `r length(s14366)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS4)`
+- Satz 5 (s14367) besteht aus `r length(s14367)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS5)`
+- Satz 6 (s14368) besteht aus `r length(s14368)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS6)`
+- Satz 7 (s14369) besteht aus `r length(s14369)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS7)`
+- Satz 8 (s14370) besteht aus `r length(s14370)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS8)`
+- Satz 9 (s14371) besteht aus `r length(s14371)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS9)`
+- Satz 10 (s14372) besteht aus `r length(s14372)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS10)`

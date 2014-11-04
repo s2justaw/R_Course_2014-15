@@ -1,0 +1,24 @@
+# Körpergrößen
+
+## Statische Berechnung
+
+Die Körpergröße berechnen auf folgende Weise:
+$$
+\bar x = \frac{\sum x_1}{n}
+$$
+
+## Dynamische Berechnung
+
+Alle Leute im Raum können als ein Vektor dargestellt werden
+
+
+```{r heights, echo = TRUE}
+woerter <- c('Zunächst','in','den','Kellerraum')
+laengen <- nchar(woerter)
+v1 <- c(156,189,187,156)
+```
+
+Im Schnitt ist jeder Mensch im Raum `mean(v1)` groß.
+
+
+

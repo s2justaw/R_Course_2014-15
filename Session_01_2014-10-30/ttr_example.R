@@ -44,6 +44,6 @@ for (i in seq_along(lemmas)) {
 
 ## Zeichne eine Graphik.
 plot(types.on.position, type = 'l',
-     xlab = "Anzahl der einmaligen Lemmata",
-     ylab = "Laufende Wortform",
+     ylab = "Anzahl der einmaligen Lemmata",
+     xlab = "Laufende Wortform",
      col = 'red')
