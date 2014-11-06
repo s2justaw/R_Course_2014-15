@@ -1,7 +1,7 @@
 # Hausaufgabe: Wortanzahl & Wortlänge
 
 
-## Wörter + Wortlängen in Vektor
+## Wörter + Wortlänge im Vektor
 
 ```{r woerter, echo = TRUE}
 s14363 <- c('Recherche','des','Prinzips')
