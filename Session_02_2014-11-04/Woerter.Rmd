@@ -28,13 +28,13 @@ laengeS9 <- nchar(s14371)
 laengeS10 <- nchar(s14372)
 ```
 
-- Satz 1 (s14363) besteht aus `r length(s14363)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS1)`
-- Satz 2 (s14364) besteht aus `r length(s14364)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS2)`
-- Satz 3 (s14365) besteht aus `r length(s14365)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS3)`
-- Satz 4 (s14366) besteht aus `r length(s14366)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS4)`
-- Satz 5 (s14367) besteht aus `r length(s14367)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS5)`
-- Satz 6 (s14368) besteht aus `r length(s14368)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS6)`
-- Satz 7 (s14369) besteht aus `r length(s14369)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS7)`
-- Satz 8 (s14370) besteht aus `r length(s14370)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS8)`
-- Satz 9 (s14371) besteht aus `r length(s14371)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS9)`
-- Satz 10 (s14372) besteht aus `r length(s14372)` Wörtern. Die durchschnittliche Wortlänge beträgt: `r mean(laengeS10)`
+- Satz 1 (s14363) besteht aus `r length(s14363)` Wörtern. Die durchschnittliche Wortlänge besteht aus `r mean(laengeS1)` Zeichen.
+- Satz 2 (s14364) besteht aus `r length(s14364)` Wörtern. Die durchschnittliche Wortlänge besteht aus `r mean(laengeS2)` Zeichen.
+- Satz 3 (s14365) besteht aus `r length(s14365)` Wörtern. Die durchschnittliche Wortlänge besteht aus `r mean(laengeS3)` Zeichen.
+- Satz 4 (s14366) besteht aus `r length(s14366)` Wörtern. Die durchschnittliche Wortlänge besteht aus `r mean(laengeS4)` Zeichen.
+- Satz 5 (s14367) besteht aus `r length(s14367)` Wörtern. Die durchschnittliche Wortlänge besteht aus `r mean(laengeS5)` Zeichen.
+- Satz 6 (s14368) besteht aus `r length(s14368)` Wörtern. Die durchschnittliche Wortlänge besteht aus `r mean(laengeS6)` Zeichen.
+- Satz 7 (s14369) besteht aus `r length(s14369)` Wörtern. Die durchschnittliche Wortlänge besteht aus `r mean(laengeS7)` Zeichen.
+- Satz 8 (s14370) besteht aus `r length(s14370)` Wörtern. Die durchschnittliche Wortlänge besteht aus `r mean(laengeS8)` Zeichen.
+- Satz 9 (s14371) besteht aus `r length(s14371)` Wörtern. Die durchschnittliche Wortlänge besteht aus `r mean(laengeS9)` Zeichen.
+- Satz 10 (s14372) besteht aus `r length(s14372)` Wörtern. Die durchschnittliche Wortlänge besteht aus `r mean(laengeS10)` Zeichen.
