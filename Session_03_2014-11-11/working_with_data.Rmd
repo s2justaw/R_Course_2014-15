@@ -1,6 +1,6 @@
 # Arbeit mit Daten
 
-## Vectoren
+## Vektoren
 ```{r}
 
 ```
