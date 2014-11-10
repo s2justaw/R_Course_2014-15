@@ -10,3 +10,8 @@
 # RStudio files
 .Rproj.user/
 .Rproj.user
+
+# Temp files
+*.html
+r_markdown_files
+r_markdown_cache
