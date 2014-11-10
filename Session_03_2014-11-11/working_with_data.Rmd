@@ -1,0 +1,28 @@
+# Arbeit mit Daten
+
+## Vectoren
+```{r}
+
+```
+
+## DataFrames
+```{r}
+
+```
+
+## Sortierung und Selektion
+```{r}
+
+```
+
+## Hausaufgabe
+* Daten herunterladen und im richtigen Verzeichnis ablegen:
+  http://tinyurl.com/r-Session03-data
+
+* Daten als ein DataFrame einlesen
+
+* Durchschnittliche Pausenlänge bei Männern berechnen
+
+* Die kürzeste und die länste Pause identifizieren (Fallnummer angeben)
+
+* Überprüfen, ob es stimmt, dass Frauen im Dialog eher Schweigepausen machen.
