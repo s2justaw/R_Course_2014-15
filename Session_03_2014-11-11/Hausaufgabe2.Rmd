@@ -1,0 +1,60 @@
+# Hausaufgabe 2: Daten einlesen
+
+
+* Datei einlesen
+```{r}
+df <- read.table(file = '../data/03-1_aeh(m).txt')
+df
+
+```
+
+
+* Selektion der männlichen und weiblichen Teilnehmer + Berechnung
+```{r}
+dfMaennlich <- df[df$V2 == 'maennlich', ]
+dfMaennlich
+
+dfWeiblich <- df[df$V2 == 'weiblich', ]
+dfWeiblich
+
+pausenLaengen <- as.numeric(as.character(dfMaennlich$V5))
+pausenLaengen
+
+```
+- Die durchschnittliche Pausenlänge bei Männern beträgt `r mean(pausenLaengen)` ms.
+
+
+* Pausenlänge Min + Max
+```{r}
+pausenIncr <- sort(pausenLaengen, decreasing = F)
+pauseMin <- pausenIncr[1]
+
+pausenDecr <- sort(pausenLaengen, decreasing = T)
+pauseMax <- pausenDecr[1]
+
+```
+- Die kürzeste Pause beträgt `r pauseMin` ms.
+- Die längste Pause beträgt `r pauseMax` ms.
+
+
+* Selektierung Genre Dialog (allgemein + männlich + weiblich)
+```{r}
+dfADialog <- df[df$V4 == 'dialog', ]
+
+dfMDialog <- dfMaennlich[dfMaennlich$V4 == 'dialog', ]
+
+dfWDialog <- dfWeiblich[dfWeiblich$V4 == 'dialog', ]
+
+```
+
+* Table Dialoge(m + w)
+```{r}
+table(dfMDialog$V2)
+table(dfWDialog$V2)
+
+table(dfADialog$V2,dfADialog$V3)
+
+```
+- Frage: Stimmt es, dass Frauen im Dialog eher Schweigepausen machen als Männer?
+- Antwort: Nein, eher genau so viele. Von 265 Männern schweigen 87 im Dialog, von 282 Frauen genau 92. Dies bedeutet, dass fast ungefähr jeder dritte Mann und jede dritte Frau im Dialog schweigen.
+
