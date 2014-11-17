@@ -1,0 +1,70 @@
+# Arbeit mit Daten II
+
+## DataFrames
+
+    Wortart   TokenFrequenz   TypenFrequenz	Klasse
+    ADJ	      421		          271		        offen
+    ADV       337		          103		        offen
+    N	        1411	          735		        offen
+    KONJ      458		          18		        geschlossen
+    PRAEP     455		          37		        geschlossen
+
+
+```{r echo = TRUE}
+Wortart <- c('ADJ', 'ADV', 'N', 'KONJ', 'PRAEP')
+
+TokenFrequenz <- c(421, 337, 1311, 458, 455)
+TypenFrequenz <- c(271, 103,735,  18, 37)
+Klasse <- c('offen', 'offen', 'offen', 'geschlossen', 'geschlossen')
+
+df1 <- data.frame(Wortart, TokenFrequenz, TypenFrequenz, Klasse)
+
+write.table(df1, file = 'df2.csv', sep = '\t')
+```
+
+* Dataframes einlesen
+```{r echo = TRUE}
+df2 <-  read.table(file = 'df1.csv')
+```
+
+
+## Sortierung und Selektion
+
+
+## Arbeit mit XML-Dateien
+
+Wir lesen XML-Dateien aus dem Tüba-D/Z-Korpus ein und extrahieren *Lemmata* und laufende *Wortformen*:
+```{r reading_XML, highlight = TRUE, results = 'hide', echo = TRUE, cache = TRUE}
+library(XML)
+
+tokens <- vector('character')
+types <- vector('character')
+
+xmlEventParse(
+  "../data/t_990505_47.xml", 
+  handlers = list(
+    't' = function(name, attr) {
+      tokens <<- c(tokens, attr['word'])
+      types <<- c(types, attr['lemma'])
+      ## morphology
+      }
+    ),
+  addContext = FALSE
+  )
+
+#names(tokens) <- NULL
+tokens <- unname(tokens)
+```
+```
+
+
+## Hausaufgabe
+* Einen Dataframe mit dem Wort, Lemma und Wortart anlegen.
+
+* Daten alphabetisch nach dem Wort sortieren und in eine Datei speichern.
+
+* Durchschnittliche Länge der Substantive in Buchstaben berechnen.
+
+* Den Dataframe anpassen und die Verteilung von Substantiven nach dem Genus berechnen.
+
+* Anzahl der autosemantischen Wörtern im Text berechnen.
