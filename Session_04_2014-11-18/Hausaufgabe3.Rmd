@@ -1,0 +1,92 @@
+## Arbeit mit XML-Dateien
+
+Wir lesen XML-Dateien aus dem TÃ¼ba-D/Z-Korpus ein und extrahieren *Lemmata* und laufende *Wortformen*:
+```{r reading_XML, highlight = TRUE, results = 'hide', echo = TRUE, cache = TRUE}
+library(XML)
+
+tokens <- vector('character')
+types <- vector('character')
+partOfSpeech <- vector('character')
+morph <- vector('character')
+
+xmlEventParse(
+  "../data/t_990505_47.xml", 
+  handlers = list(
+    't' = function(name, attr) {
+      tokens <<- c(tokens, attr['word'])
+      types <<- c(types, attr['lemma'])
+      partOfSpeech <<- c(partOfSpeech, attr['pos'])
+      morph <<- c(morph, attr['morph'])
+      ## morphology
+      }
+    ),
+  addContext = FALSE
+  )
+
+#names(tokens) <- NULL
+tokens <- unname(tokens)
+```
+
+
+# Dataframe anlegen
+```{r}
+df <- data.frame(tokens,types,partOfSpeech,morph)
+df
+```
+
+# Dataframe sortieren (alphabetisch) & in Datei speichern
+```{r}
+
+write.table(df[order(df$tokens), ], file = "Dataframe_sortiert.csv", sep = "\t")
+
+```
+
+# sortierten Dataframe einlesen, in neuem Dataframe speichern
+```{r}
+
+dfSort <- read.table(file = 'Dataframe_sortiert.csv')
+dfSort
+
+```
+
+# Substantive aus Tabelle filtern  Längen berechnen
+```{r}
+
+dfSubstantive <- dfSort[dfSort$partOfSpeech == "NN", ]
+dfSubstantive
+
+
+substantive <- as.character(dfSubstantive$tokens)
+nchar(substantive)
+
+```
+Die Durchschnittslänge aller Substantive in Buchstaben beträgt `r mean(nchar(substantive))`!
+
+
+# Genera f, m, n
+```{r}
+
+mask <- length(grep("..m", dfSubstantive$morph, perl=TRUE, value=FALSE))
+fem <- length(grep("..f", dfSubstantive$morph, perl=TRUE, value=FALSE))
+neut <- length(grep("..n", dfSubstantive$morph, perl=TRUE, value=FALSE))
+
+mask
+fem
+neut
+nichtMarkiert <- length(dfSubstantive$morph) - (neut + fem + mask)
+nichtMarkiert
+
+```
+Es gibt insgesamt `r length(dfSubstantive$tokens)` Substantive. Davon sind `r mask` maskulin, `r fem` feminin, `r neut` neutral und `r nichtMarkiert` nicht zuordbar.
+
+
+# Autosemantika zählen
+```{r}
+
+dfAutosem <- subset(dfSort, dfSort$partOfSpeech %in% c('NN','ADJA','ADJD','VAFIN','VAIMP','VAINF','VAPP','VMFIN','VMINF','VMPP','VVFIN','VVIMP','VVINF','VVIZU','VVPP'))
+
+
+```
+Es gibt insgesamt `r length(dfAutosem$partOfSpeech)` Autosemantika. 
+
+
