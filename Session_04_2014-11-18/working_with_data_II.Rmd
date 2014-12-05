@@ -110,4 +110,4 @@ tokens <- unname(tokens)
 mit rbind() und cbind() (Zeilen und Spalten zusammenfügen) und table()
 
 * Anzahl der autosemantischen WÃ¶rtern im Text berechnen.
-(autosemantika u sinsem)
+(autosemantika u synsem)
