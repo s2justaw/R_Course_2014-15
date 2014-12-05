@@ -6,11 +6,16 @@ df <- read.table('../data/03-1_aeh(m).txt', header = T)
 
 str(df)
 
+<<<<<<< HEAD
 head(df, n = 10)
 tail(df, n = 3)
 head(df)
 tail(df)
 
+=======
+head(df)
+tail(df, n = 3)
+>>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
 ```
 
 ## Klassenbildung
@@ -20,22 +25,36 @@ $$
 k = \log_2 n + 1
 $$
 
+<<<<<<< HEAD
 ## Häufigkeitsverteilungen
 ```{r table, echo=TRUE}
+=======
+## Häufigkeistverteilungen
+```{r table, echo = T}
+>>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
 head(df$FILLER)
 
 attach(df)
 str(FILLER)
 
+<<<<<<< HEAD
 table(FILLER) #Absolute Darstellung (Absolute H�ufigkeiten)
 
 table(FILLER) / length(FILLER) #Relative Darstellung (Relative H�ufigkeiten)
 
 #prop.table(FILLER)
+=======
+table(FILLER)
+
+table(FILLER) / length(FILLER)
+
+prop.table(table(FILLER))
+>>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
 
 cumsum(table(FILLER))
 ```
 
+<<<<<<< HEAD
 ## Kuchendiagramme
 ```{r piechart, echo=TRUE}
 pie(table(FILLER))
@@ -51,24 +70,57 @@ barplot(table(FILLER),
         # xlim,
         col = c('red','green','blue'),
         names.arg = c('Aeh','Aehm','Volle Stille')
+=======
+
+## Kuchendiagramme
+
+```{r piechart, echo = TRUE}
+pie(table(FILLER))
+```
+
+
+## Balkendiagramme
+
+```{r barplot, echo = T}
+barplot(table(FILLER))
+barplot(table(FILLER),
+        main = 'Unser Balkendiagramm',
+        # ylim
+        # xlim
+        col = c('red', 'green', 'blue'),
+        names.arg = c('Aeh', 'Aehm', 'Volle Stille')
+>>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
         )
 
 ```
 
 
 ## Histogramme
+<<<<<<< HEAD
 ```{r hist, echo=TRUE}
 hist(LAENGE, breaks = c(200, 350, 800, 1600))
 
 ```
 
 
+=======
+```{r hist, echo = T} 
+hist(LAENGE, breaks = c(200,350, 800, 1600))
+```
+
+>>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
 ## Hausaufgabe
 
 * Ein Dataframe mit Wortlängen und jeweiligen Wortformen aus einer XML-Datei erstellen.
 * Eine gruppierte Datenreihe aus den rohen Daten konstruieren, die die Frequenzen berücksichtigt
+<<<<<<< HEAD
   (welcher Datentyp ist das?). => typeof(), class()
   
 * Diese Häufigkeitsverteilung mit einem Histogramm und einem Balkendiagramm darstellen. (grenze bei h�ufigkeiten bei synsemantika und autosemantika)
 * Ein Balkendiagramm mit der Bibliothek `ggplot2` mit denselben Daten erstellen (oder mindestens versuchen).
 ggplot2.org
+=======
+  (welcher Datentyp ist das?).
+* Diese Häufigkeitsverteilung mit einem Histogramm und einem Balkendiagramm darstellen.
+* Ein Balkendiagramm mit der Bibliothek `ggplot2` mit denselben Daten erstellen (oder mindestens versuchen).
+>>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb

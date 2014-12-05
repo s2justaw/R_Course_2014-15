@@ -1,0 +1,78 @@
+# Hausaufgabe 5
+
+## Daten
+```{r reading_XML, highlight = TRUE, results = 'hide', echo = TRUE, cache = TRUE}
+library(XML)
+
+tokens <- vector('character')
+types <- vector('character')
+
+xmlEventParse(
+  "../data/t_990505_47.xml", 
+  handlers = list(
+    't' = function(name, attr) {
+      tokens <<- c(tokens, attr['word'])
+      types <<- c(types, attr['lemma'])
+      ## morphology
+      }
+    ),
+  addContext = FALSE
+  )
+
+tokens <- unname(tokens)
+types.lengths <- nchar(types)
+```
+
+## Deskriptiver Wert: Modus
+```{r mode, echo = T}
+modeMax <- function(x) {
+  ux <- unique(x)
+  ux[which.max(tabulate(match(x, ux)))]
+}
+
+modeMin <- function(x) {
+  ux <- unique(x)
+  ux[which.min(tabulate(match(x, ux)))]
+}
+
+t1 <- table(types.lengths)
+t1 
+modeMax(types.lengths)
+modeMin(types.lengths)
+```
+
+# Deskriptiver Wert: Median
+```{r}
+length(types.lengths)
+head(sort(types.lengths), length(types.lengths)/2)
+t2 <- prop.table(table(types.lengths))
+cumsum(t2)
+
+median(types.lengths)
+
+```
+
+# Deskriptiver Wert: Durchschnitt
+```{r}
+
+mean(types.lengths)
+```
+
+# Häufigkeiten
+```{r}
+
+# Absolute Häufigkeiten (Absolute Darstellung)
+table(types.lengths)
+
+# Relative Häufigkeiten (Relative Darstellung)
+table(types.lengths) / length(types.lengths)
+
+# Summenhäufigkeit (kumulierte Häufigkeit)
+cumsum(t2)
+
+# relative Summenhäufigkeit (kumulierte Summenhäufigkeit)
+cumsum(t2) / dim(t2)
+
+```
+
+

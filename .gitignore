@@ -17,4 +17,10 @@
 *.html
 r_markdown_files
 r_markdown_cache
+<<<<<<< HEAD
 >>>>>>> 0a98ed89336763c52af240f15d14b508b82d0886
+=======
+
+# Data
+data
+>>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb

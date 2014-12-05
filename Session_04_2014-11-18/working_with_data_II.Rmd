@@ -34,11 +34,16 @@ attach(df2)
 TokenFrequenz
 # Wortart
 
+<<<<<<< HEAD
 # detach()
+=======
+#detach()
+>>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
 ```
 
 ## Sortierung und Selektion
 ```{r sort, echo = TRUE}
+<<<<<<< HEAD
 v12 <- c(1:100)
 v13 <- c(1, 4, 5, 3, 6, 9)
 sort(v13, T)
@@ -70,7 +75,32 @@ subset(df2, df2$Klasse == 'geschlossen' & df2$Wortart %in% c('KONJ', 'PRAEP'))
 ```
 
 
+=======
+v12 <- 1:100 # seq(1, 100, 1)
+v13 <- c(1, 4, 5, 3, 6, 9)
+sort(v13)
+sort(v13, TRUE)
+order(v13)
+```
 
+```{r ordering, echo = TRUE}
+df2[order(df2$TokenFrequenz), ]
+```
+
+## Samples
+>>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
+
+```{r samples, echo = TRUE}
+set.seed(1)
+df2[sample(length(df2$Klasse)), ]
+df2[sample(length(df2$Klasse)), ]
+```
+
+## Logische Abfragen
+```{r boolean, echo = TRUE}
+subset(df2, df2$Klasse == 'offen' & df2$TokenFrequenz > 100)
+subset(df2, df2$Klasse == 'geschlossen' & df2$Wortart %in% c('KONJ', 'PRAEP'))
+```
 
 ## Arbeit mit XML-Dateien
 
@@ -96,10 +126,10 @@ xmlEventParse(
 #names(tokens) <- NULL
 tokens <- unname(tokens)
 ```
-```
 
 
 ## Hausaufgabe
+
 * Einen Dataframe mit dem Wort, Lemma und Wortart anlegen.
 
 * Daten alphabetisch nach dem Wort sortieren und in eine Datei speichern.
