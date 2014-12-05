@@ -1,0 +1,33 @@
+Unsere Bsp Präsi
+========================================================
+author: Herr X
+date: 25-11-2014
+
+First Slide
+========================================================
+
+For more details on authoring R presentations click the
+**Help** button on the toolbar.
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+Slide With Code
+========================================================
+
+```{r}
+summary(cars)
+```
+
+$$
+k = \log_2 n + 1
+$$
+
+
+Slide With Plot
+========================================================
+
+```{r, echo=FALSE}
+plot(cars)
+```

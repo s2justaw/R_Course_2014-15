@@ -1,0 +1,74 @@
+# Explorative Analyse
+
+## Daten einlesen
+```{r input, echo = TRUE}
+df <- read.table('../data/03-1_aeh(m).txt', header = T)
+
+str(df)
+
+head(df, n = 10)
+tail(df, n = 3)
+head(df)
+tail(df)
+
+```
+
+## Klassenbildung
+
+Sturges' Formel
+$$
+k = \log_2 n + 1
+$$
+
+## HÃ¤ufigkeitsverteilungen
+```{r table, echo=TRUE}
+head(df$FILLER)
+
+attach(df)
+str(FILLER)
+
+table(FILLER) #Absolute Darstellung (Absolute Häufigkeiten)
+
+table(FILLER) / length(FILLER) #Relative Darstellung (Relative Häufigkeiten)
+
+#prop.table(FILLER)
+
+cumsum(table(FILLER))
+```
+
+## Kuchendiagramme
+```{r piechart, echo=TRUE}
+pie(table(FILLER))
+
+```
+
+## Balkendiagramme
+```{r barplot, echo=TRUE}
+barplot(table(FILLER))
+barplot(table(FILLER), 
+        main = 'Unser Balkendiagram',
+        # ylim,
+        # xlim,
+        col = c('red','green','blue'),
+        names.arg = c('Aeh','Aehm','Volle Stille')
+        )
+
+```
+
+
+## Histogramme
+```{r hist, echo=TRUE}
+hist(LAENGE, breaks = c(200, 350, 800, 1600))
+
+```
+
+
+## Hausaufgabe
+
+* Ein Dataframe mit WortlÃ¤ngen und jeweiligen Wortformen aus einer XML-Datei erstellen.
+* Eine gruppierte Datenreihe aus den rohen Daten konstruieren, die die Frequenzen berÃ¼cksichtigt
+  (welcher Datentyp ist das?). => typeof(), class()
+  
+* Diese HÃ¤ufigkeitsverteilung mit einem Histogramm und einem Balkendiagramm darstellen. (grenze bei häufigkeiten bei synsemantika und autosemantika)
+* Ein Balkendiagramm mit der Bibliothek `ggplot2` mit denselben Daten erstellen (oder mindestens versuchen).
+ggplot2.org

@@ -1,0 +1,73 @@
+## Arbeit mit XML-Dateien
+
+Wir lesen XML-Dateien aus dem Tüba-D/Z-Korpus ein und extrahieren *Lemmata* und laufende *Wortformen*:
+```{r reading_XML, highlight = TRUE, results = 'hide', echo = TRUE, cache = TRUE}
+library(XML)
+
+tokens <- vector('character')
+types <- vector('character')
+partOfSpeech <- vector('character')
+morph <- vector('character')
+
+xmlEventParse(
+  "../data/t_990505_47.xml", 
+  handlers = list(
+    't' = function(name, attr) {
+      tokens <<- c(tokens, attr['word'])
+      types <<- c(types, attr['lemma'])
+      partOfSpeech <<- c(partOfSpeech, attr['pos'])
+      morph <<- c(morph, attr['morph'])
+      ## morphology
+      }
+    ),
+  addContext = FALSE
+  )
+
+#names(tokens) <- NULL
+tokens <- unname(tokens)
+```
+
+# Dataframe erstellen
+```{r}
+
+wortLaenge <- nchar(types)
+
+df <- data.frame(partOfSpeech, wortLaenge)
+head(df, n = 5)
+
+dfAuto <- df[df$partOfSpeech %in% c('NN','ADJA','ADJD','VAFIN','VAIMP','VAINF','VAPP','VMFIN','VMINF','VMPP','VVFIN','VVIMP','VVINF','VVIZU','VVPP'), ]
+dfAuto
+
+
+```
+
+# Table erstellen
+```{r}
+absHaeuf <- table(partOfSpeech)
+absHaeuf
+
+relHaeuf <- table(partOfSpeech) / length(partOfSpeech)
+relHaeuf
+
+typeof(absHaeuf)
+class(absHaeuf)
+
+
+```
+
+
+# Balkendiagram
+```{r}
+barplot(table(partOfSpeech))
+
+```
+
+
+
+# Histogramm
+```{r}
+hist(absHaeuf)
+
+
+```
+
