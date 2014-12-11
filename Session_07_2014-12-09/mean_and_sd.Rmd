@@ -1,0 +1,94 @@
+# Mittel- und Streuungswerte
+
+
+```{r data, echo = FALSE, cache = TRUE}
+planungspausen <- read.table('../data/03-1_aeh(m).txt', header = T)
+```
+
+## Ordinale Daten
+
+```{r median}
+pause.length <- planungspausen$LAENGE
+
+q1 <- sort(pause.length)[floor(0.25 * (length(pause.length) + 1))]
+q2 <- sort(pause.length)[floor(0.50 * (length(pause.length) + 1))]
+q3 <- sort(pause.length)[floor(0.75 * (length(pause.length) + 1))]
+
+#ceiling(x)
+q1
+q2
+q3
+```
+
+```{r quantile}
+quantile(pause.length, c(0.25, 0.50, 0.75))
+quantile(pause.length, c(0.1, 0.40, 0.8))
+```
+
+```{r iqr}
+# (Differenz vom ersten und dritten Quantil)
+IQR(pause.length)
+```
+
+
+```{r mad}
+
+mean(abs(pause.length - median(pause.length)))
+
+mad(pause.length, const = 1)
+```
+
+```{r minmax}
+# Spannweite zwischen max - min
+max(pause.length) - min(pause.length)
+
+mean(pause.length)
+```
+
+
+## Metrische Daten
+
+```{r variance}
+
+# theoretische Varianz
+var(pause.length)
+
+sqrt(var(pause.length))
+```
+
+```{r sd}
+sd(pause.length)
+```
+
+```{r var_self_implemented}
+# Varianz
+sum((pause.length - mean(pause.length))^2) / length(pause.length)
+
+```
+
+
+### Graphische Darstellung
+
+```{r summary}
+str(pause.length)
+summary(pause.length)
+
+
+```
+
+
+```{r boxplot}
+boxplot(planungspausen$LAENGE)
+
+# Bei Angabe des Mittelwertes, auch angeben: Wert der Standardabweichung, Standardfehler
+# standardfehler = abweichung vom geschätzten standardwert/mittelwert
+# arbeit mit bereichen, weniger mit festen werten
+# Abweichungen zwischen Mittelwerten können sich überschneiden
+```
+
+## Aufgaben
+* die Formel fÃ¼r die Berechnung der Standardabweichung implementieren;
+* als Boxplots die LÃ¤ngen der Lemmata und der Wortformen (in Buchstabe) in einer Graphik anzeigen lassen.
+```{r}
+# points()
+```

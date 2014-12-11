@@ -7,6 +7,7 @@ df <- read.table('../data/03-1_aeh(m).txt', header = T)
 str(df)
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 head(df, n = 10)
 tail(df, n = 3)
 head(df)
@@ -16,6 +17,10 @@ tail(df)
 head(df)
 tail(df, n = 3)
 >>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
+=======
+head(df)
+tail(df, n = 3)
+>>>>>>> 302ab56b8d457b8f07c0e321dd52d4e68b75c219
 ```
 
 ## Klassenbildung
@@ -26,17 +31,23 @@ k = \log_2 n + 1
 $$
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Häufigkeitsverteilungen
 ```{r table, echo=TRUE}
 =======
 ## Häufigkeistverteilungen
 ```{r table, echo = T}
 >>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
+=======
+## Häufigkeistverteilungen
+```{r table, echo = T}
+>>>>>>> 302ab56b8d457b8f07c0e321dd52d4e68b75c219
 head(df$FILLER)
 
 attach(df)
 str(FILLER)
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 table(FILLER) #Absolute Darstellung (Absolute H�ufigkeiten)
 
@@ -44,16 +55,22 @@ table(FILLER) / length(FILLER) #Relative Darstellung (Relative H�ufigkeiten)
 
 #prop.table(FILLER)
 =======
+=======
+>>>>>>> 302ab56b8d457b8f07c0e321dd52d4e68b75c219
 table(FILLER)
 
 table(FILLER) / length(FILLER)
 
 prop.table(table(FILLER))
+<<<<<<< HEAD
 >>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
+=======
+>>>>>>> 302ab56b8d457b8f07c0e321dd52d4e68b75c219
 
 cumsum(table(FILLER))
 ```
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 ## Kuchendiagramme
 ```{r piechart, echo=TRUE}
@@ -71,6 +88,8 @@ barplot(table(FILLER),
         col = c('red','green','blue'),
         names.arg = c('Aeh','Aehm','Volle Stille')
 =======
+=======
+>>>>>>> 302ab56b8d457b8f07c0e321dd52d4e68b75c219
 
 ## Kuchendiagramme
 
@@ -89,13 +108,17 @@ barplot(table(FILLER),
         # xlim
         col = c('red', 'green', 'blue'),
         names.arg = c('Aeh', 'Aehm', 'Volle Stille')
+<<<<<<< HEAD
 >>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
+=======
+>>>>>>> 302ab56b8d457b8f07c0e321dd52d4e68b75c219
         )
 
 ```
 
 
 ## Histogramme
+<<<<<<< HEAD
 <<<<<<< HEAD
 ```{r hist, echo=TRUE}
 hist(LAENGE, breaks = c(200, 350, 800, 1600))
@@ -104,15 +127,21 @@ hist(LAENGE, breaks = c(200, 350, 800, 1600))
 
 
 =======
+=======
+>>>>>>> 302ab56b8d457b8f07c0e321dd52d4e68b75c219
 ```{r hist, echo = T} 
 hist(LAENGE, breaks = c(200,350, 800, 1600))
 ```
 
+<<<<<<< HEAD
 >>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
+=======
+>>>>>>> 302ab56b8d457b8f07c0e321dd52d4e68b75c219
 ## Hausaufgabe
 
 * Ein Dataframe mit Wortlängen und jeweiligen Wortformen aus einer XML-Datei erstellen.
 * Eine gruppierte Datenreihe aus den rohen Daten konstruieren, die die Frequenzen berücksichtigt
+<<<<<<< HEAD
 <<<<<<< HEAD
   (welcher Datentyp ist das?). => typeof(), class()
   
@@ -124,3 +153,8 @@ ggplot2.org
 * Diese Häufigkeitsverteilung mit einem Histogramm und einem Balkendiagramm darstellen.
 * Ein Balkendiagramm mit der Bibliothek `ggplot2` mit denselben Daten erstellen (oder mindestens versuchen).
 >>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
+=======
+  (welcher Datentyp ist das?).
+* Diese Häufigkeitsverteilung mit einem Histogramm und einem Balkendiagramm darstellen.
+* Ein Balkendiagramm mit der Bibliothek `ggplot2` mit denselben Daten erstellen (oder mindestens versuchen).
+>>>>>>> 302ab56b8d457b8f07c0e321dd52d4e68b75c219

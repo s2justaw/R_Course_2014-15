@@ -35,14 +35,19 @@ TokenFrequenz
 # Wortart
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 # detach()
 =======
 #detach()
 >>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
+=======
+#detach()
+>>>>>>> 302ab56b8d457b8f07c0e321dd52d4e68b75c219
 ```
 
 ## Sortierung und Selektion
 ```{r sort, echo = TRUE}
+<<<<<<< HEAD
 <<<<<<< HEAD
 v12 <- c(1:100)
 v13 <- c(1, 4, 5, 3, 6, 9)
@@ -90,6 +95,21 @@ df2[order(df2$TokenFrequenz), ]
 ## Samples
 >>>>>>> 408f67c7a9f66d3846fb1e478bf2930b17279dbb
 
+=======
+v12 <- 1:100 # seq(1, 100, 1)
+v13 <- c(1, 4, 5, 3, 6, 9)
+sort(v13)
+sort(v13, TRUE)
+order(v13)
+```
+
+```{r ordering, echo = TRUE}
+df2[order(df2$TokenFrequenz), ]
+```
+
+## Samples
+
+>>>>>>> 302ab56b8d457b8f07c0e321dd52d4e68b75c219
 ```{r samples, echo = TRUE}
 set.seed(1)
 df2[sample(length(df2$Klasse)), ]

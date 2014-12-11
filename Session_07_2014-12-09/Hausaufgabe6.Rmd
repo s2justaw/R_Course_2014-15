@@ -1,0 +1,65 @@
+# HA 6 - Aufgaben
+* die Formel f√ºr die Berechnung der Standardabweichung implementieren;
+* als Boxplots die L√§ngen der Lemmata und der Wortformen (in Buchstabe) in einer Graphik anzeigen lassen.
+
+## Read Table + Variablen festlegen
+```{r data, echo = FALSE, cache = TRUE}
+planungspausen <- read.table('../data/03-1_aeh(m).txt', header = T)
+
+pause.length <- planungspausen$LAENGE
+```
+
+## Standardabweichung
+```{r standardabweichung}
+#Feste Funktion in R f. Standardabweichung
+sd(pause.length)
+
+#HA - selbst implementieren
+varianz <- sum((pause.length - mean(pause.length))^2) / length(pause.length)
+standardabw <- sqrt(varianz)
+standardabw
+```
+
+## Weitere Daten einlesen
+```{r reading_XML, highlight = TRUE, results = 'hide', echo = TRUE, cache = TRUE}
+library(XML)
+
+tokens <- vector('character')
+types <- vector('character')
+
+xmlEventParse(
+  "../data/t_990505_47.xml", 
+  handlers = list(
+    't' = function(name, attr) {
+      tokens <<- c(tokens, attr['word'])
+      types <<- c(types, attr['lemma'])
+      ## morphology
+      }
+    ),
+  addContext = FALSE
+  )
+
+tokens <- unname(tokens)
+```
+
+## Boxplots - L‰nge d. Lemmata + Wortformen (in Buchstaben)
+```{r boxplots}
+#Wortform-L‰ngen in Variable
+tokens.length <- nchar(tokens)
+head(tokens.length)
+
+#Lemma-L‰ngen in Variable
+types.length <- nchar(types)
+head(types.length)
+
+#Kurze Table-‹bersicht
+table(tokens.length)
+table(types.length)
+
+#Dataframe mit L‰ngen
+df <- data.frame(tokens.length, types.length)
+head(df)
+
+#Boxplots aus Dataframe erstellen
+boxplot(df)
+```
