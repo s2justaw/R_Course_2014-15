@@ -1,0 +1,64 @@
+# HA7
+
+## Aufgabenstellungen
+
+* Wortlängen in Buchstaben für einen deutschen Wikipedia-Text berechnen;
+readlines() und split() schreibt in Vektor
+* Deskriptive Analyse der Wortlängen vornehmen;
+Mittelwerte, usw....
+* die Häufigkeitsverteilung in Form eines Histogramms darstellen;
+* die Häufigkeitsverteilung in Form eines Balkendiagramms mit der Differenzierung nach der Wortart darstellen.
+Wortarten innerhalb d. Frequenzbalkens (..parameter "besides" = F, Wortarten mit Treetagger (downloaden))
+
+# Wikipedia-Text einlesen und in einen Vektor schreiben
+```{r}
+#readLines mit UTF-8
+txt_lines <- readLines('../data/Pinguine_Wiki.txt', encoding = 'UTF-8')
+head(txt_lines)
+
+#Lines bei Leerzeichen splitten
+txt_lines_words <- strsplit(txt_lines, "\\W")
+head(txt_lines_words)
+
+#Vektor mit einzelnen Wörtern erstellen
+words <- c()
+for(i in 1:length(txt_lines_words))
+    {
+    words <- append(words, txt_lines_words [[i]])
+    }
+head(words)
+
+words_length <- nchar(words)
+head(words_length)
+
+#Dataframe mit Wörtern und deren Länge erstellen + Leerzeichen herausfiltern
+df_txt <- data.frame(words,words_length)
+df_words <- df_txt[df_txt$words_length > 0,]
+head(df_words)
+  
+```
+
+# Deskriptive Analyse der Wortlängen
+```{r}
+summary(df_words)
+mean(df_words$words_length)
+median(df_words$words_length)
+```
+
+# Häufigkeitsverteilung
+```{r}
+# Histogram
+hist(df_words$words_length,
+     breaks=28,
+     main="Histogramm der Wortlänge",
+     ylab="Frequenz",
+     xlab="Wortlänge",
+     col=grey)
+
+# Balkendiagramm nach Wortarten differenziert
+#boxplot()
+
+
+```
+
+
