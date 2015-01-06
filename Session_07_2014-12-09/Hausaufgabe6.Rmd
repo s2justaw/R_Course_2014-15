@@ -42,24 +42,25 @@ xmlEventParse(
 tokens <- unname(tokens)
 ```
 
-## Boxplots - Länge d. Lemmata + Wortformen (in Buchstaben)
+## Boxplots - L?nge d. Lemmata + Wortformen (in Buchstaben)
 ```{r boxplots}
-#Wortform-Längen in Variable
+#Wortform-L?ngen in Variable
 tokens.length <- nchar(tokens)
 head(tokens.length)
 
-#Lemma-Längen in Variable
+#Lemma-L?ngen in Variable
 types.length <- nchar(types)
 head(types.length)
 
-#Kurze Table-Übersicht
+#Kurze Table-?bersicht
 table(tokens.length)
 table(types.length)
 
-#Dataframe mit Längen
+#Dataframe mit L?ngen
 df <- data.frame(tokens.length, types.length)
 head(df)
 
 #Boxplots aus Dataframe erstellen
+summary(df)
 boxplot(df)
 ```
